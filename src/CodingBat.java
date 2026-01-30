@@ -102,5 +102,11 @@ public final class CodingBat {
             }
             return result.toString();
         }
+
+        public static boolean prefixAgain(String str, int n) {
+            String prefix = str.substring(0, n);
+            String regex = prefix + ".*" + prefix + ".*";
+            return str.matches(regex);
+        }
     }
 }
