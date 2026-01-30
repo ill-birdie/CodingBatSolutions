@@ -134,5 +134,15 @@ public final class CodingBat {
             }
             return count;
         }
+
+        public static boolean endOther(String a, String b) {
+            if (a.length() < b.length()) {
+                String temp = a;
+                a = b;
+                b = temp;
+            }
+            int targetStartIndex = a.length() - b.length();
+            return a.substring(targetStartIndex).equalsIgnoreCase(b);
+        }
     }
 }
