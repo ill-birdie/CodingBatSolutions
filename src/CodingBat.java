@@ -82,5 +82,16 @@ public final class CodingBat {
             }
             return count;
         }
+
+        public static boolean bobThere(String str) {
+            for (int i = 0; i < str.length() - 2; i++) {
+                char currChar = str.charAt(i);
+                char nextNextChar = str.charAt(i + 2);
+                if (currChar == nextNextChar) {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
