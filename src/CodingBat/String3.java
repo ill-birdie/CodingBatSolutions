@@ -45,4 +45,14 @@ public final class String3 {
         }
         return longest;
     }
+
+    public static int sumDigits(String str) {
+        int sum = 0;
+        for (char c : str.toCharArray()) {
+            if (Character.isDigit(c)) {
+                sum += Integer.parseInt(String.valueOf(c));
+            }
+        }
+        return sum;
+    }
 }
