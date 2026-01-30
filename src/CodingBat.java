@@ -108,5 +108,20 @@ public final class CodingBat {
             String regex = prefix + ".*" + prefix + ".*";
             return str.matches(regex);
         }
+
+        public static boolean sameStarChar(String str) {
+            for (int i = 0; i < str.length(); i++) {
+                boolean firstOrLast = (i == 0 || i == str.length() - 1);
+                char currChar = str.charAt(i);
+                if (currChar == '*' && !firstOrLast) {
+                    char prevChar = str.charAt(i - 1);
+                    char nextChar = str.charAt(i + 1);
+                    if (prevChar != nextChar) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
     }
 }
