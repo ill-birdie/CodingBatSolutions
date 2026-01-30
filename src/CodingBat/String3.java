@@ -33,4 +33,16 @@ public final class String3 {
         }
         return base;
     }
+
+    public static String sameEnds(String string) {
+        String longest = "";
+        for (int i = 1; i <= string.length() / 2; i++) {
+            String prefix = string.substring(0, i);
+            String suffix = string.substring(string.length() - i);
+            if (prefix.equals(suffix)) {
+                longest = prefix;
+            }
+        }
+        return longest;
+    }
 }
