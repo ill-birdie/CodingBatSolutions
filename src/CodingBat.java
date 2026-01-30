@@ -1,6 +1,7 @@
 public final class CodingBat {
     private CodingBat() { }
 
+    // LOGIC-2 PROBLEMS
     public static final class Logic2 {
         private Logic2() { }
 
@@ -59,7 +60,8 @@ public final class CodingBat {
         }
     }
 
-    public final class String2 {
+    // STRING-2 PROBLEMS
+    public static final class String2 {
         private String2() { }
 
         public static String doubleChar(String str) {
@@ -143,6 +145,19 @@ public final class CodingBat {
             }
             int targetStartIndex = a.length() - b.length();
             return a.substring(targetStartIndex).equalsIgnoreCase(b);
+        }
+
+        public static boolean xyBalance(String str) {
+            boolean hangingX = false;
+            for (int i = 0; i < str.length(); i++) {
+                char currChar = str.charAt(i);
+                if (currChar == 'x') {
+                    hangingX = true;
+                } else if (currChar == 'y') {
+                    hangingX = false;
+                }
+            }
+            return !hangingX;
         }
     }
 }
