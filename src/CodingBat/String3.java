@@ -23,10 +23,10 @@ public final class String3 {
 
     public static String withoutString(String base, String remove) {
         int idx = 0;
-        while (idx < base.length() - remove.length()) {
+        while (idx <= base.length() - remove.length()) {
             String currWindow = base.substring(idx, idx + remove.length());
-            if (currWindow.equals(remove)) {
-                base = base.substring(idx) + base.substring(idx + remove.length());
+            if (currWindow.equalsIgnoreCase(remove)) {
+                base = base.substring(0, idx) + base.substring(idx + remove.length());
             } else {
                 idx++;
             }
