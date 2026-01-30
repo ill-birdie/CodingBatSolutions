@@ -34,6 +34,25 @@ public final class String3 {
         return base;
     }
 
+    public boolean gHappy(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            char currChar = str.charAt(i);
+            if (currChar != 'g') {
+                continue;
+            }
+
+            boolean hasG = i > 0 && str.charAt(i - 1) == 'g';
+            if (i < str.length() - 1 && str.charAt(i + 1) == 'g') {
+                hasG = true;
+            }
+            if (!hasG) {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
     public static String sameEnds(String string) {
         String longest = "";
         for (int i = 1; i <= string.length() / 2; i++) {
@@ -54,5 +73,9 @@ public final class String3 {
             }
         }
         return sum;
+    }
+
+    public static String notReplace(String str) {
+
     }
 }
