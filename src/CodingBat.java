@@ -168,5 +168,18 @@ public final class CodingBat {
             }
             return !hangingX;
         }
+
+        public static boolean xyzMiddle(String str) {
+            int xyzStartIndex = str.substring(str.length() / 2).indexOf("xyz");
+            if (xyzStartIndex == -1) {
+                return false;
+            }
+            int difference = str.substring(0, xyzStartIndex).length() - str.substring(xyzStartIndex + 3).length();
+            return -1 <= difference && difference <= 1;
+        }
+
+        public static boolean xyzThere(String str) {
+            return str.matches(".*(?<!\\.)xyz.*");
+        }
     }
 }
