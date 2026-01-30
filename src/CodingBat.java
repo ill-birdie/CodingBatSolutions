@@ -93,5 +93,14 @@ public final class CodingBat {
             }
             return false;
         }
+
+        public static String repeatEnd(String str, int n) {
+            String lastChars = str.substring(str.length() - n);
+            StringBuilder result = new StringBuilder();
+            for (int i = 1; i <= n; i++) {
+                result.append(lastChars);
+            }
+            return result.toString();
+        }
     }
 }
