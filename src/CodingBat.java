@@ -1,9 +1,11 @@
 public final class CodingBat {
-    private CodingBat() { }
+    private CodingBat() {
+    }
 
     // LOGIC-2 PROBLEMS
     public static final class Logic2 {
-        private Logic2() { }
+        private Logic2() {
+        }
 
         public static int round10(int num) {
             double tenthOfNum = (double) num / 10;
@@ -34,7 +36,7 @@ public final class CodingBat {
         }
 
         public boolean evenlySpaced(int a, int b, int c) {
-            int[] nums = bubbleSort(new int[] {a, b, c});
+            int[] nums = bubbleSort(new int[]{a, b, c});
             int smallest = nums[0];
             int largest = nums[nums.length - 1];
             int middle = nums[1];
@@ -62,7 +64,8 @@ public final class CodingBat {
 
     // STRING-2 PROBLEMS
     public static final class String2 {
-        private String2() { }
+        private String2() {
+        }
 
         public static String doubleChar(String str) {
             StringBuilder doubledWord = new StringBuilder();
@@ -180,6 +183,40 @@ public final class CodingBat {
 
         public static boolean xyzThere(String str) {
             return str.matches(".*(?<!\\.)xyz.*");
+        }
+
+        public String oneTwo(String str) {
+            StringBuilder result = new StringBuilder();
+            while (str.length() >= 3) {
+                String currWindow = str.substring(0, 3);
+                String newWord = currWindow.substring(1) + currWindow.charAt(0);
+                result.append(newWord);
+                str = str.substring(3);
+            }
+            return result.toString();
+        }
+    }
+
+    // STRING-3 PROBLEMS
+    public static final class String3 {
+        private String3() {
+        }
+
+        public static int countYZ(String str) {
+            int count = 0;
+            int startIdx = 0;
+            while (!str.substring(startIdx, startIdx + 1).matches("[A-Za-z]")) {
+                startIdx++;
+            }
+            str = str.substring(startIdx);
+            String[] words = str.split("[^A-Za-z]+");
+            for (String w : words) {
+                String lastLetter = w.substring(w.length() - 1);
+                if ("YyZz".contains(lastLetter)) {
+                    count++;
+                }
+            }
+            return count;
         }
     }
 }
