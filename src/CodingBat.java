@@ -96,6 +96,15 @@ public final class CodingBat {
             return false;
         }
 
+        public static String repeatFront(String str, int n) {
+            StringBuilder result = new StringBuilder();
+            for (int i = 0; i < n; i++) {
+                String currWindow = str.substring(0, n - i);
+                result.append(currWindow);
+            }
+            return result.toString();
+        }
+
         public static String repeatEnd(String str, int n) {
             String lastChars = str.substring(str.length() - n);
             StringBuilder result = new StringBuilder();
