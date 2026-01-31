@@ -33,6 +33,19 @@ public final class String3 {
         return base;
     }
 
+    public boolean equalIsNot(String str) {
+        int numIs = 0;
+        int numNot = 0;
+        for (int i = 0; i < str.length() - 1; i++) {
+            if (str.startsWith("is", i)) {
+                numIs++;
+            } else if (i < str.length() - 2 && str.startsWith("not", i)) {
+                numNot++;
+            }
+        }
+        return numIs == numNot;
+    }
+
     public boolean gHappy(String str) {
         for (int i = 0; i < str.length(); i++) {
             char currChar = str.charAt(i);
