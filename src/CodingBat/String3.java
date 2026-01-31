@@ -52,6 +52,21 @@ public final class String3 {
         return true;
     }
 
+    public static int countTriple(String str) {
+        if (str.length() < 3) {
+            return 0;
+        }
+
+        int numTriples = 0;
+        for (int i = 0; i < str.length() - 2; i++) {
+            String currWindow = str.substring(i, i + 3);
+            if (currWindow.matches("^(.)\\1\\1$")) {
+                numTriples++;
+            }
+        }
+        return numTriples;
+    }
+
     public static int sumDigits(String str) {
         int sum = 0;
         for (char c : str.toCharArray()) {
