@@ -75,7 +75,29 @@ public final class String3 {
         return sum;
     }
 
-    public static String notReplace(String str) {
+    public static String mirrorEnds(String string) {
+        if (string.length() < 2) {
+            return string;
+        }
 
+        int stoppingIndex = string.length() / 2;
+        if (string.length() % 2 != 0) {
+            stoppingIndex++;
+        }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i <= stoppingIndex; i++) {
+            char start = string.charAt(i);
+            char end = string.charAt(string.length() - (i + 1));
+            if (start == end) {
+                sb.append(start);
+            } else {
+                break;
+            }
+        }
+        String result = sb.toString();
+        if (result.length() == stoppingIndex + 1) {
+            result = string;
+        }
+        return result;
     }
 }
