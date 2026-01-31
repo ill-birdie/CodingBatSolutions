@@ -1,8 +1,7 @@
 package CodingBat;
 
 public final class String3 {
-    private String3() {
-    }
+    private String3() { }
 
     public static int countYZ(String str) {
         int count = 0;
@@ -116,4 +115,31 @@ public final class String3 {
         return longest;
     }
 
+    public static String notReplace(String str) {
+        int i = 0;
+        while (i < str.length() - 1) {
+            String currWindow = str.substring(i, i + 2);
+
+            boolean standalone = true;
+            if (i > 0) {
+                char prevChar = str.charAt(i - 1);
+                if (Character.isLetter(prevChar)) {
+                    standalone = false;
+                }
+            }
+            if (i < str.length() - 2) {
+                char nextChar = str.charAt(i + 2);
+                if (Character.isLetter(nextChar)) {
+                    standalone = false;
+                }
+            }
+
+            if (standalone && currWindow.equals("is")) {
+                str = str.substring(0, i + 2) + " not" + str.substring(i + 2);
+                i += 5;
+            }
+            i++;
+        }
+        return str;
+    }
 }
