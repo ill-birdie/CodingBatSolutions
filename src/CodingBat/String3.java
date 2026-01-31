@@ -100,4 +100,20 @@ public final class String3 {
         }
         return result;
     }
+
+    public static int maxBlock(String str) {
+        int longest = 0;
+        for (int i = 1; i <= str.length(); i++) {
+            for (int j = 0; j < str.length() - (i - 1); j++) {
+                String currWindow = str.substring(j, j + i);
+                System.out.println(currWindow);
+                if (currWindow.matches("^(.)\\1*$")) {
+                    longest = currWindow.length();
+                    break;
+                }
+            }
+        }
+        return longest;
+    }
+
 }
