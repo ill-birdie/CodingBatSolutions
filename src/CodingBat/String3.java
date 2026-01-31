@@ -52,6 +52,16 @@ public final class String3 {
         return true;
     }
 
+    public static int sumDigits(String str) {
+        int sum = 0;
+        for (char c : str.toCharArray()) {
+            if (Character.isDigit(c)) {
+                sum += Integer.parseInt(String.valueOf(c));
+            }
+        }
+        return sum;
+    }
+
     public static String sameEnds(String string) {
         String longest = "";
         for (int i = 1; i <= string.length() / 2; i++) {
@@ -62,16 +72,6 @@ public final class String3 {
             }
         }
         return longest;
-    }
-
-    public static int sumDigits(String str) {
-        int sum = 0;
-        for (char c : str.toCharArray()) {
-            if (Character.isDigit(c)) {
-                sum += Integer.parseInt(String.valueOf(c));
-            }
-        }
-        return sum;
     }
 
     public static String mirrorEnds(String string) {
