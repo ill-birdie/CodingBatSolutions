@@ -31,7 +31,7 @@ public final class Logic2 {
         }
     }
 
-    public boolean evenlySpaced(int a, int b, int c) {
+    public static boolean evenlySpaced(int a, int b, int c) {
         int[] nums = bubbleSort(new int[]{a, b, c});
         int smallest = nums[0];
         int largest = nums[nums.length - 1];
@@ -55,5 +55,20 @@ public final class Logic2 {
             }
         }
         return nums;
+    }
+
+    public static int luckySum(int a, int b, int c) {
+        int sum = 0;
+        int pointer = 0;
+        int[] nums = {a, b, c};
+        while (pointer < nums.length) {
+            int currNum = nums[pointer];
+            if (currNum == 13) {
+                break;
+            }
+            sum += currNum;
+            pointer++;
+        }
+        return sum;
     }
 }
