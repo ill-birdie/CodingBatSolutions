@@ -4,6 +4,57 @@ public final class Custom {
     private Custom() { }
 
     /**
+     * Write the hasDuplicates method below to return TRUE
+     * if the array contains at least one value that is repeated more than once in the array, and FALSE otherwise.
+     * <p>
+     * hasDuplicates([1, 2, 3, 4, 5, 6]) → false
+     * hasDuplicates([1, 2, 3, 2, 5, 6]) → true
+     * hasDuplicates([1, 4, 6, 4, 4, 6]) → true
+     * @param numList The input array.
+     * @return If the array has a duplicate number.
+     */
+    public static boolean hasDuplicates(int[] numList) {
+        for (int i = 0; i < numList.length - 1; i++) {
+            for (int j = i + 1; j < numList.length; j++) {
+                if (numList[i] == numList[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Write the howManyPrimes method below to return the number of integers in the array that are prime numbers
+     * (numbers that have exactly two divisors: 1 and itself).
+     * Note that the number 1 is NOT considered prime, and the number 2 is prime.
+     * <p>
+     * PRECONDITION: all elements in numList >= 1 (Efficiency is not a priority.)
+     * <p>
+     * howManyPrimes([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) → 4
+     * howManyPrimes([1, 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20]) → 0
+     * howManyPrimes([2, 3, 5, 7, 11, 13, 17, 19]) → 8
+     * @param numList The input array.
+     * @return The number of primes (int) inside the input array.
+     */
+    public static int howManyPrimes(int[] numList) {
+        int numPrimes = 0;
+        for (int n : numList) {
+            boolean nIsPrime = (n != 1);
+            for (int i = (int) Math.sqrt(n); i > 1; i--) {
+                if (n % i == 0) {
+                    nIsPrime = false;
+                    break;
+                }
+            }
+            if (nIsPrime) {
+                numPrimes++;
+            }
+        }
+        return numPrimes;
+    }
+
+    /**
      * Write the mode method below to return the number that is the mode of the array,
      * which is the number that appears most frequently.
      * <p>
@@ -23,43 +74,25 @@ public final class Custom {
      * @return The mode of the array.
      */
     public static int mode(int[] numList) {
-        int[] checked = new int[numList.length]; // Checking this array might be slower or faster depending on the input
         int mode = numList[0];
-        int modeCount = 0;
-        for (int i = 0; i < numList.length - modeCount; i++) {
+        int modeCount = 1;
+        for (int i = 0; i < numList.length; i++) {
             int currNum = numList[i];
-            if (!arrayContains(checked, currNum)) {
-                checked[i] = currNum;
-                int currCount = hasHowMany(numList, currNum);
-                if (currCount >= modeCount) {
-                    if (currCount == modeCount) {
-                        mode = Math.min(currNum, mode);
-                    } else {
-                        mode = currNum;
-                    }
+            int currCount = 1;
+            for (int j = i + 1; j < numList.length; j++) {
+                if (numList[j] == currNum) {
+                    currCount++;
+                }
+            }
+            if (currCount >= modeCount) {
+                if (currCount == modeCount) {
+                    mode = Math.min(mode, currNum);
+                } else {
+                    mode = currNum;
                     modeCount = currCount;
                 }
             }
         }
         return mode;
-    }
-
-    public static boolean arrayContains(int[] arr, int target) {
-        for (int n : arr) {
-            if (n == target) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public static int hasHowMany(int[] arr, int target) {
-        int count = 0;
-        for (int n : arr) {
-            if (n == target) {
-                count++;
-            }
-        }
-        return count;
     }
 }
