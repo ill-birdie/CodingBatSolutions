@@ -1,7 +1,7 @@
 package CodingBat;
 
-public final class Arrays3 {
-    private Arrays3() { }
+public final class Array3 {
+    private Array3() { }
 
     public static int maxSpan(int[] nums) {
         if (nums.length < 1) {
