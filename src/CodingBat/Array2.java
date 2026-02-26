@@ -86,6 +86,21 @@ public final class Array2 {
         return streak >= 3;
     }
 
+    public static int[] evenOdd(int[] nums) {
+        int swapDestination = 0;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] % 2 == 0) {
+                if (nums[swapDestination] % 2 != 0) {
+                    int temp = nums[i];
+                    nums[i] = nums[swapDestination];
+                    nums[swapDestination] = temp;
+                }
+                swapDestination++;
+            }
+        }
+        return nums;
+    }
+
     public static String[] fizzBuzz(int start, int end) {
         String[] result = new String[end - start];
         for (int i = start; i < end; i++) {
