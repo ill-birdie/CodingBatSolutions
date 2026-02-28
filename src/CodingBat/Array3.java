@@ -37,6 +37,20 @@ public final class Array3 {
         return false;
     }
 
+    public static int[] squareUp(int n) {
+        int[] result = new int[n*n];
+        int currIdx = n*n - 1;
+        for (int i = n; i > 0; i--) {
+            for (int j = 1; j <= n; j++) {
+                if (j <= i) {
+                    result[currIdx] = j;
+                }
+                currIdx--;
+            }
+        }
+        return result;
+    }
+
     public static int countClumps(int[] nums) {
         int count = 0;
         for (int i = 0; i < nums.length - 1; i++) {
