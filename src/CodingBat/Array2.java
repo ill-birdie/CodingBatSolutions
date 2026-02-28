@@ -86,19 +86,56 @@ public final class Array2 {
         return streak >= 3;
     }
 
-    public static int[] evenOdd(int[] nums) {
-        int swapDestination = 0;
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] % 2 == 0) {
-                if (nums[swapDestination] % 2 != 0) {
-                    int temp = nums[i];
-                    nums[i] = nums[swapDestination];
-                    nums[swapDestination] = temp;
-                }
-                swapDestination++;
+    public int[] zeroFront(int[] nums) {
+        int[] result = new int[nums.length];
+        int pointer = nums.length - 1;
+        for (int n : nums) {
+            if (n != 0) {
+                result[pointer] = n;
+                pointer--;
+            }
+        }
+        return result;
+    }
+
+    public static int[] withoutTen(int[] nums) {
+        int[] result = new int[nums.length];
+        int currIdx = 0;
+        for (int n : nums) {
+            if (n != 10) {
+                result[currIdx] = n;
+                currIdx++;
+            }
+        }
+        return result;
+    }
+
+    public static int[] zeroMax(int[] nums) {
+        int largestOdd = 0;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (nums[i] % 2 == 1) {
+                largestOdd = Math.max(largestOdd, nums[i]);
+            } else if (nums[i] == 0) {
+                nums[i] = largestOdd;
             }
         }
         return nums;
+    }
+
+    public static int[] evenOdd(int[] nums) {
+        int[] result = new int[nums.length];
+        int leftIdx = 0;
+        int rightIdx = nums.length - 1;
+        for (int n : nums) {
+            if (n % 2 == 0) {
+                result[leftIdx] = n;
+                leftIdx++;
+            } else {
+                result[rightIdx] = n;
+                rightIdx--;
+            }
+        }
+        return result;
     }
 
     public static String[] fizzBuzz(int start, int end) {
