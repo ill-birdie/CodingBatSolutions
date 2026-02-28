@@ -20,20 +20,19 @@ public final class Array3 {
     }
 
     public static boolean canBalance(int[] nums) {
-        for (int split = 0; split < nums.length; split++) {
-            int firstHalfSum = 0;
-            for (int i = 0; i < split; i++) {
-                firstHalfSum += nums[i];
-            }
-            int secondHalfSum = 0;
-            for (int i = split; i < nums.length; i++) {
-                secondHalfSum += nums[i];
-            }
-            if (firstHalfSum == secondHalfSum) {
+        int totalSum = 0;
+        for (int n : nums) {
+            totalSum += n;
+        }
+        int leftSideSum = 0;
+        int rightSideSum;
+        for (int n : nums) {
+            leftSideSum += n;
+            rightSideSum = totalSum - leftSideSum;
+            if (leftSideSum == rightSideSum) {
                 return true;
             }
         }
-
         return false;
     }
 
