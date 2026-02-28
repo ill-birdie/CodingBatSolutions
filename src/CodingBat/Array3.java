@@ -36,6 +36,24 @@ public final class Array3 {
         return false;
     }
 
+    public static boolean linearIn(int[] outer, int[] inner) {
+        int outerPointer = 0;
+        int innerPointer = 0;
+        while (outerPointer < outer.length && innerPointer < inner.length) {
+            int outerNum = outer[outerPointer];
+            int innerNum = inner[innerPointer];
+            if (outerNum <= innerNum) {
+                outerPointer++;
+                if (outerNum == innerNum) {
+                    innerPointer++;
+                }
+            } else {
+                return false;
+            }
+        }
+        return innerPointer == inner.length;
+    }
+
     public static int[] squareUp(int n) {
         int[] result = new int[n*n];
         int currIdx = n*n - 1;
