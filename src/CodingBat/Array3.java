@@ -51,6 +51,18 @@ public final class Array3 {
         return result;
     }
 
+    public static int[] seriesUp(int n) {
+        int[] series = new int[n*(n + 1)/2];
+        int idx = 0;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                series[idx] = j;
+                idx++;
+            }
+        }
+        return series;
+    }
+
     public static int countClumps(int[] nums) {
         int count = 0;
         for (int i = 0; i < nums.length - 1; i++) {
