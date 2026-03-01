@@ -99,6 +99,24 @@ public final class Array3 {
         return series;
     }
 
+    public static int maxMirror(int[] nums) {
+        int maxCount = 0;
+        for (int i = 0; i < nums.length; i++) {
+            int currCount = 0;
+            for (int j = nums.length - 1; j >= 0; j--) {
+                int k = i;
+                while (j >= 0 && k < nums.length && nums[k] == nums[j]) {
+                    currCount++;
+                    j--;
+                    k++;
+                }
+                maxCount = Math.max(maxCount, currCount);
+                currCount = 0;
+            }
+        }
+        return maxCount;
+    }
+
     public static int countClumps(int[] nums) {
         int count = 0;
         for (int i = 0; i < nums.length - 1; i++) {
