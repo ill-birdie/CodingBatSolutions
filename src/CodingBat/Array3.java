@@ -19,6 +19,25 @@ public final class Array3 {
         return result;
     }
 
+    public static int[] fix34(int[] nums) {
+        int nextFour = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 3) {
+                while (nextFour < nums.length) {
+                    if (nums[nextFour] != 4) {
+                        nextFour++;
+                    } else {
+                        break;
+                    }
+                }
+                nums[nextFour] = nums[i + 1];
+                nums[i + 1] = 4;
+            }
+        }
+        return nums;
+    }
+
+
     public static boolean canBalance(int[] nums) {
         int totalSum = 0;
         for (int n : nums) {
