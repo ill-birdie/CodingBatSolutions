@@ -24,6 +24,20 @@ public final class String2 {
         return count;
     }
 
+    public static boolean catDog(String str) {
+        int numCat = 0;
+        int numDog = 0;
+        for (int i = 0; i < str.length() - 2; i++) {
+            String window = str.substring(i, i + 3);
+            if (window.equals("cat")) {
+                numCat++;
+            } else if (window.equals("dog")) {
+                numDog++;
+            }
+        }
+        return numCat == numDog;
+    }
+
     public static int countCode(String str) {
         int count = 0;
         for (int i = 0; i < str.length() - 3; i++) {
@@ -73,6 +87,20 @@ public final class String2 {
         return !hangingX;
     }
 
+    public static String mixString(String a, String b) {
+        StringBuilder mixed = new StringBuilder();
+        for (int i = 0; i < Math.min(a.length(), b.length()); i++) {
+            mixed.append(a.charAt(i));
+            mixed.append(b.charAt(i));
+        }
+        if (a.length() > b.length()) {
+            mixed.append(a.substring(b.length()));
+        } else if (b.length() > a.length()) {
+            mixed.append(b.substring(a.length()));
+        }
+        return mixed.toString();
+    }
+
     public static String repeatEnd(String str, int n) {
         String lastChars = str.substring(str.length() - n);
         StringBuilder result = new StringBuilder();
@@ -89,6 +117,19 @@ public final class String2 {
             result.append(currWindow);
         }
         return result.toString();
+    }
+
+    public static String repeatSeparator(String word, String sep, int count) {
+        if (count == 0) {
+            return "";
+        }
+        StringBuilder repeated = new StringBuilder();
+        for (int i = 1; i < count; i++) {
+            repeated.append(word);
+            repeated.append(sep);
+        }
+        repeated.append(word);
+        return repeated.toString();
     }
 
     public static boolean prefixAgain(String str, int n) {
