@@ -46,21 +46,16 @@ public final class String3 {
         return numIs == numNot;
     }
 
-    public boolean gHappy(String str) {
+    public static boolean gHappy(String str) {
         for (int i = 0; i < str.length(); i++) {
             char currChar = str.charAt(i);
-            if (currChar != 'g') {
-                continue;
+            if (currChar == 'g') {
+                boolean hasG = (i > 0 && str.charAt(i - 1) == 'g') ||
+                        (i < str.length() - 1 && str.charAt(i + 1) == 'g');
+                if (!hasG) {
+                    return false;
+                }
             }
-
-            boolean hasG = i > 0 && str.charAt(i - 1) == 'g';
-            if (i < str.length() - 1 && str.charAt(i + 1) == 'g') {
-                hasG = true;
-            }
-            if (!hasG) {
-                return false;
-            }
-
         }
         return true;
     }
