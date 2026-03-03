@@ -162,7 +162,7 @@ public final class String2 {
         return true;
     }
 
-    public String oneTwo(String str) {
+    public static String oneTwo(String str) {
         StringBuilder result = new StringBuilder();
         while (str.length() >= 3) {
             String currWindow = str.substring(0, 3);
@@ -172,4 +172,19 @@ public final class String2 {
         }
         return result.toString();
     }
+
+    public static String starOut(String str) {
+        StringBuilder starless = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            String window = str.substring(
+                    Math.max(0, i - 1),
+                    Math.min(str.length(), i + 2)
+            );
+            if (!window.contains("*")) {
+                starless.append(str.charAt(i));
+            }
+        }
+        return starless.toString();
+    }
+
 }
