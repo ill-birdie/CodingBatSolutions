@@ -147,6 +147,17 @@ public final class String2 {
         return -1 <= difference && difference <= 1;
     }
 
+    public static String getSandwich(String str) {
+        String target = "bread";
+        int startIdx = str.indexOf(target) + target.length();
+        int endIdx = str.lastIndexOf(target);
+        if (endIdx == -1 || startIdx - target.length() == endIdx) {
+            return "";
+        } else {
+            return str.substring(startIdx, endIdx);
+        }
+    }
+
     public static boolean sameStarChar(String str) {
         for (int i = 0; i < str.length(); i++) {
             boolean firstOrLast = (i == 0 || i == str.length() - 1);
