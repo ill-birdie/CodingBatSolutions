@@ -129,18 +129,20 @@ public final class String3 {
     }
 
     public static int maxBlock(String str) {
-        int longest = 0;
-        for (int i = 1; i <= str.length(); i++) {
-            for (int j = 0; j < str.length() - (i - 1); j++) {
-                String currWindow = str.substring(j, j + i);
-                System.out.println(currWindow);
-                if (currWindow.matches("^(.)\\1*$")) {
-                    longest = currWindow.length();
-                    break;
-                }
+        if (str.isEmpty()) {
+            return 0;
+        }
+        int mBlock = 1;
+        int currBlock = 1;
+        for (int i = 0; i < str.length() - 1; i++) {
+            if (str.charAt(i) == str.charAt(i + 1)) {
+                currBlock++;
+            } else {
+                mBlock = Math.max(mBlock, currBlock);
+                currBlock = 1;
             }
         }
-        return longest;
+        return Math.max(mBlock, currBlock);
     }
 
     public static String notReplace(String str) {
