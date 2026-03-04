@@ -184,6 +184,17 @@ public final class String2 {
         return result.toString();
     }
 
+    public static String zipZap(String str) {
+        StringBuilder sb = new StringBuilder(str);
+        for (int i = 0; i < sb.length() - 2; i++) {
+            if (sb.substring(i, i + 3).matches("z.p")) {
+                sb.delete(i + 1, i + 2);
+                i++;
+            }
+        }
+        return sb.toString();
+    }
+
     public static String starOut(String str) {
         StringBuilder starless = new StringBuilder();
         for (int i = 0; i < str.length(); i++) {
