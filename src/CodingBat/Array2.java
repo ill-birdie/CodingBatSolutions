@@ -185,6 +185,19 @@ public final class Array2 {
         return matches;
     }
 
+    public static boolean has77(int[] nums) {
+        int prevSeven = -3; // Way out of bounds
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 7) {
+                if (i - prevSeven <= 2) {
+                    return true;
+                }
+                prevSeven = i;
+            }
+        }
+        return false;
+    }
+
     public static boolean modThree(int[] nums) {
         int streak = 0;
         boolean lastWasEven = true;
