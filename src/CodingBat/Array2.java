@@ -157,6 +157,22 @@ public final class Array2 {
         return true;
     }
 
+    public static boolean either24(int[] nums) {
+        boolean fourPair = false;
+        boolean twoPair = false;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 2 && nums[i + 1] == 2) {
+                twoPair = true;
+            } else if (nums[i] == 4 && nums[i + 1] == 4) {
+                fourPair = true;
+            }
+            if (twoPair && fourPair) {
+                return false;
+            }
+        }
+        return twoPair || fourPair;
+    }
+
     public static int matchUp(int[] nums1, int[] nums2) {
         int matches = 0;
         for (int i = 0; i < nums1.length; i++) {
