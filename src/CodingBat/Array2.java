@@ -13,6 +13,28 @@ public final class Array2 {
         return count;
     }
 
+    public static int bigDiff(int[] nums) {
+        int numsMax = nums[0];
+        int numsMin = nums[0];
+        for (int n : nums) {
+            numsMax = Math.max(numsMax, n);
+            numsMin = Math.min(numsMin, n);
+        }
+        return numsMax - numsMin;
+    }
+
+    public static int centeredAverage(int[] nums) {
+        int numsMax = nums[0];
+        int numsMin = nums[0];
+        int sum = 0;
+        for (int n : nums) {
+            sum += n;
+            numsMax = Math.max(numsMax, n);
+            numsMin = Math.min(numsMin, n);
+        }
+        return (sum - numsMax - numsMin) / (nums.length - 2);
+    }
+
     public static int sum13(int[] nums) {
         int sum = 0;
         boolean lastWasThirteen = false;
