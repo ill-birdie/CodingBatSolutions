@@ -50,6 +50,34 @@ public final class Array2 {
         return sum;
     }
 
+    public static int sum67(int[] nums) {
+        int sum = 0;
+        boolean inSix = false;
+        for (int n : nums) {
+            if (!inSix) {
+                if (n == 6) {
+                    inSix = true;
+                } else {
+                    sum += n;
+                }
+            } else {
+                if (n == 7) {
+                    inSix = false;
+                }
+            }
+        }
+        return sum;
+    }
+
+    public static boolean has22(int[] nums) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 2 && nums[i + 1] == 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean lucky13(int[] nums) {
         for (int n : nums) {
             if (n == 1 || n == 3) {
