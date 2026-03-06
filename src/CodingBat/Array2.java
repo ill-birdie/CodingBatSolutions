@@ -118,6 +118,23 @@ public final class Array2 {
         return arr;
     }
 
+    public static boolean only14(int[] nums) {
+        for (int n : nums) {
+            if (n != 1 && n != 4) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static String[] fizzArray2(int n) {
+        String[] arr = new String[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = String.valueOf(i);
+        }
+        return arr;
+    }
+
     public static boolean no14(int[] nums) {
         boolean hasOne = false;
         boolean hasFour = false;
@@ -129,6 +146,15 @@ public final class Array2 {
             }
         }
         return !hasOne || !hasFour;
+    }
+
+    public static boolean isEverywhere(int[] nums, int val) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] != val && nums[i + 1] != val) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static int matchUp(int[] nums1, int[] nums2) {
