@@ -49,6 +49,17 @@ public final class Array1 {
         return nums;
     }
 
+    public static int start1(int[] a, int[] b) {
+        int count = 0;
+        int[][] arrays = new int[][] {a, b};
+        for (int[] arr : arrays) {
+            if (arr != null && arr.length > 0 && arr[0] == 1) {
+                count++;
+            }
+        }
+        return count;
+    }
+
     public static int[] makeMiddle(int[] nums) {
         int halfwayHigher = nums.length / 2;
         return new int[] {nums[halfwayHigher - 1], nums[halfwayHigher]};
@@ -96,11 +107,7 @@ public final class Array1 {
             return true;
         } else if (nums[0] == 1 && nums[1] == 3) {
             return true;
-        } else if (nums[1] == 1 && nums[2] == 3) {
-            return true;
-        } else {
-            return false;
-        }
+        } else return nums[1] == 1 && nums[2] == 3;
     }
 
     public static int[] make2(int[] a, int[] b) {
