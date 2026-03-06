@@ -87,6 +87,29 @@ public final class Array2 {
         return true;
     }
 
+    public static boolean sum28(int[] nums) {
+        int numTwos = 0;
+        for (int n : nums) {
+            if (n == 2) {
+                numTwos++;
+            }
+        }
+        return numTwos == 4;
+    }
+
+    public static boolean more14(int[] nums) {
+        int numOnes = 0;
+        int numFours = 0;
+        for (int n : nums) {
+            if (n == 1) {
+                numOnes++;
+            } else if (n == 4) {
+                numFours++;
+            }
+        }
+        return numOnes > numFours;
+    }
+
     public static int[] fizzArray(int n) {
         int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
