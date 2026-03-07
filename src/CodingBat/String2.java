@@ -64,6 +64,10 @@ public final class String2 {
     }
 
     public static boolean bobThere(String str) {
+        return str.matches(".*b.b.*");
+    }
+
+    public static boolean bobThereNoRegex(String str) {
         for (int i = 0; i < str.length() - 2; i++) {
             char currChar = str.charAt(i);
             char nextNextChar = str.charAt(i + 2);
@@ -138,15 +142,6 @@ public final class String2 {
         return str.matches(regex);
     }
 
-    public static boolean xyzMiddle(String str) {
-        int xyzStartIndex = str.substring(str.length() / 2).indexOf("xyz");
-        if (xyzStartIndex == -1) {
-            return false;
-        }
-        int difference = str.substring(0, xyzStartIndex).length() - str.substring(xyzStartIndex + 3).length();
-        return -1 <= difference && difference <= 1;
-    }
-
     public static String getSandwich(String str) {
         String target = "bread";
         int startIdx = str.indexOf(target) + target.length();
@@ -207,6 +202,21 @@ public final class String2 {
             }
         }
         return starless.toString();
+    }
+
+    public static String plusOut(String str, String word) {
+        StringBuilder sb = new StringBuilder();
+        int index = 0;
+        while (index < str.length()) {
+            if (index > str.length() - word.length() || !str.startsWith(word, index)) {
+                sb.append('+');
+                index++;
+            } else {
+                sb.append(word);
+                index += word.length();
+            }
+        }
+        return sb.toString();
     }
 
     public static String wordEnds(String str, String word) {
