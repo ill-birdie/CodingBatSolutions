@@ -198,6 +198,18 @@ public final class Array2 {
         return false;
     }
 
+    public static boolean has12(int[] nums) {
+        boolean hasOne = false;
+        for (int n : nums) {
+            if (n == 1) {
+                hasOne = true;
+            } else if (hasOne && n == 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static boolean modThree(int[] nums) {
         int streak = 0;
         boolean lastWasEven = true;
@@ -212,6 +224,21 @@ public final class Array2 {
             }
         }
         return streak >= 3;
+    }
+
+    public static boolean haveThree(int[] nums) {
+        int numThrees = 0;
+        for (int i = 0; i < nums.length; i++) {
+            boolean currIsThree = (nums[i] == 3);
+            boolean nextIsThree = (i < nums.length - 1 && nums[i + 1] == 3);
+            if (currIsThree) {
+                numThrees++;
+            }
+            if ( numThrees > 3 || (currIsThree && nextIsThree) ) {
+                return false;
+            }
+        }
+        return numThrees == 3;
     }
 
     public int[] zeroFront(int[] nums) {
