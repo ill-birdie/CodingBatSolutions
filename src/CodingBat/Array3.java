@@ -37,6 +37,22 @@ public final class Array3 {
         return nums;
     }
 
+    public static int[] fix45(int[] nums) {
+        int nextFive = 0;
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 4) {
+                while (nextFive < nums.length &&
+                        nums[nextFive] != 5 || nums[nextFive - 1] == 4) {
+                    nextFive++;
+                }
+                if (nextFive < nums.length) {
+                    nums[nextFive] = nums[i + 1];
+                    nums[i + 1] = 5;
+                }
+            }
+        }
+        return nums;
+    }
 
     public static boolean canBalance(int[] nums) {
         int totalSum = 0;
