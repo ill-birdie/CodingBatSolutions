@@ -4,30 +4,34 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class Map2 {
-    private Map2() { }
+    private Map2() {
+    }
 
-    public Map<String, Integer> word0(String[] strings) {
+    public static Map<String, Integer> word0(String[] strings) {
         Map<String, Integer> map = new HashMap<>();
         for (String str : strings) {
             map.put(str, 0);
         }
         return map;
     }
-    public Map<String, Integer> wordLen(String[] strings) {
+
+    public static Map<String, Integer> wordLen(String[] strings) {
         Map<String, Integer> lens = new HashMap<>();
         for (String str : strings) {
             lens.put(str, str.length());
         }
         return lens;
     }
-    public Map<String, String> pairs(String[] strings) {
+
+    public static Map<String, String> pairs(String[] strings) {
         Map<String, String> p = new HashMap<>();
         for (String str : strings) {
             p.put(str.substring(0, 1), str.substring(str.length() - 1));
         }
         return p;
     }
-    public Map<String, Integer> wordCount(String[] strings) {
+
+    public static Map<String, Integer> wordCount(String[] strings) {
         Map<String, Integer> counted = new HashMap<>();
         for (String str : strings) {
             int newValue = (counted.containsKey(str)) ? counted.get(str) + 1 : 1;
@@ -35,7 +39,8 @@ public class Map2 {
         }
         return counted;
     }
-    public Map<String, String> firstChar(String[] strings) {
+
+    public static Map<String, String> firstChar(String[] strings) {
         Map<String, String> firsts = new HashMap<>();
         for (String str : strings) {
             String k = str.substring(0, 1);
@@ -44,7 +49,8 @@ public class Map2 {
         }
         return firsts;
     }
-    public String wordAppend(String[] strings) {
+
+    public static String wordAppend(String[] strings) {
         Map<String, Integer> count = new HashMap<>();
         StringBuilder sb = new StringBuilder();
         for (String str : strings) {
@@ -56,7 +62,7 @@ public class Map2 {
         }
         return sb.toString();
     }
-    public Map<String, Boolean> wordMultiple(String[] strings) {
+    public static Map<String, Boolean> wordMultiple(String[] strings) {
         Map<String, Boolean> foundTwice = new HashMap<>();
         for (String str : strings) {
             if (!foundTwice.containsKey(str)) {
@@ -67,7 +73,8 @@ public class Map2 {
         }
         return foundTwice;
     }
-    public String[] allSwap(String[] strings) {
+
+    public static String[] allSwap(String[] strings) {
         Map<Character, Integer> toSwap = new HashMap<>();
         for (int i = 0; i < strings.length; i++) {
             char k = strings[i].charAt(0);
@@ -82,7 +89,8 @@ public class Map2 {
         }
         return strings;
     }
-    public String[] firstSwap(String[] strings) {
+
+    public static String[] firstSwap(String[] strings) {
         Map<Character, Integer> toSwap = new HashMap<>();
         for (int i = 0; i < strings.length; i++) {
             String str = strings[i];
@@ -98,5 +106,4 @@ public class Map2 {
         }
         return strings;
     }
-
 }
