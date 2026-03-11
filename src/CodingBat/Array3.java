@@ -42,7 +42,7 @@ public final class Array3 {
         for (int i = 0; i < nums.length - 1; i++) {
             if (nums[i] == 4) {
                 while (nextFive < nums.length &&
-                        nums[nextFive] != 5 || nums[nextFive - 1] == 4) {
+                        nums[nextFive] != 5 || nums[Math.max(0, nextFive - 1)] == 4) {
                     nextFive++;
                 }
                 if (nextFive < nums.length) {
