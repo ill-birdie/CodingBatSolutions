@@ -3,7 +3,7 @@ package CodingBat;
 import java.util.Map;
 import java.util.HashMap;
 
-public class Map2 {
+public final class Map2 {
     private Map2() {
     }
 

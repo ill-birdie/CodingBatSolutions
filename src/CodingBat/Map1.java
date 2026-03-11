@@ -2,7 +2,7 @@ package CodingBat;
 
 import java.util.Map;
 
-public class Map1 {
+public final class Map1 {
     private Map1() { }
 
     public static Map<String, String> mapBully(Map<String, String> map) {
