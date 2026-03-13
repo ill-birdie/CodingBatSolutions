@@ -263,6 +263,24 @@ public final class Array2 {
         return true;
     }
 
+    public static boolean tripleUp(int[] nums) {
+        for (int i = 1; i < nums.length - 1; i++) {
+            if (nums[i+1] - nums[i] == 1 && nums[i] - nums[i-1] == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static int[] fizzArray3(int start, int end) {
+        int range = end - start;
+        int[] rangeArr = new int[range];
+        for (int i = 0; i < range; i++) {
+            rangeArr[i] = start + i;
+        }
+        return rangeArr;
+    }
+
     public static int[] notAlone(int[] nums, int val) {
         for (int i = 0; i < nums.length; i++) {
             int curr = nums[i];
