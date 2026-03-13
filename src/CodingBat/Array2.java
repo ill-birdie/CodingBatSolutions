@@ -281,6 +281,65 @@ public final class Array2 {
         return rangeArr;
     }
 
+    public static int[] shiftLeft(int[] nums) {
+        if (nums.length <= 1) {
+            return nums;
+        }
+        int firstNum = nums[0];
+        int[] shifted = new int[nums.length];
+        shifted[nums.length - 1] = firstNum;
+        System.arraycopy(nums, 1, shifted, 0, nums.length - 1);
+        return shifted;
+    }
+
+    public static int[] shiftRight(int[] nums) {
+        if (nums.length <= 1) {
+            return nums;
+        }
+        int lastNum = nums[nums.length - 1];
+        int[] shifted = new int[nums.length];
+        shifted[0] = lastNum;
+        System.arraycopy(nums, 0, shifted, 1, nums.length - 1);
+        return shifted;
+    }
+
+    public static int[] tenRun(int[] nums) {
+        int currMultiple = -1;
+        for (int i = 0; i < nums.length; i++) {
+            int currNum = nums[i];
+            currMultiple = (currNum % 10 != 0) ? currMultiple : currNum;
+            nums[i] = (currMultiple != -1) ? currMultiple : currNum;
+        }
+        return nums;
+    }
+
+    public static int[] pre4(int[] nums) {
+        int firstFour = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 4) {
+                firstFour = i;
+                break;
+            }
+        }
+        int[] p4 = new int[firstFour];
+        System.arraycopy(nums, 0, p4, 0, firstFour);
+        return p4;
+    }
+
+    public static int[] post4(int[] nums) {
+        int lastFour = -1;
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (nums[i] == 4) {
+                lastFour = i;
+                break;
+            }
+        }
+        int startIdx = lastFour + 1;
+        int[] result = new int[nums.length - startIdx];
+        System.arraycopy(nums, startIdx, result, 0, nums.length - startIdx);
+        return result;
+    }
+
     public static int[] notAlone(int[] nums, int val) {
         for (int i = 0; i < nums.length; i++) {
             int curr = nums[i];
