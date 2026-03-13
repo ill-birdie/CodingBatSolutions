@@ -241,7 +241,42 @@ public final class Array2 {
         return numThrees == 3;
     }
 
-    public int[] zeroFront(int[] nums) {
+    public static boolean twoTwo(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 2) {
+                boolean leftIsTwo = i > 0 && nums[i - 1] == 2;
+                boolean rightIsTwo = i < nums.length - 1 && nums[i + 1] == 2;
+                if (!leftIsTwo && !rightIsTwo) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static boolean sameEnds(int[] nums, int len) {
+        for (int i = 0; i < len; i++) {
+            if (nums[i] != nums[nums.length - len + i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static int[] notAlone(int[] nums, int val) {
+        for (int i = 0; i < nums.length; i++) {
+            int curr = nums[i];
+            boolean isAlone =
+                    (i > 0 && nums[i - 1] != curr) &&
+                            (i < nums.length - 1 && nums[i + 1] != curr);
+            if (nums[i] == val && isAlone) {
+                nums[i] = Math.max(nums[i - 1], nums[i + 1]);
+            }
+        }
+        return nums;
+    }
+
+    public static int[] zeroFront(int[] nums) {
         int[] result = new int[nums.length];
         int pointer = nums.length - 1;
         for (int n : nums) {
