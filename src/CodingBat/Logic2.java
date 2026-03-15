@@ -45,29 +45,22 @@ public final class Logic2 {
         return false;
     }
 
-    public static int[] bubbleSort(int[] nums) {
-        boolean sorted = false;
-        while (!sorted) {
-            sorted = true;
-            for (int i = 0; i < nums.length - 1; i++) {
-                int currNum = nums[i];
-                int nextNum = nums[i + 1];
-                if (currNum > nextNum) {
-                    nums[i] = nextNum;
-                    nums[i + 1] = currNum;
-                    sorted = false;
-                }
-            }
-        }
-        return nums;
+    public static int blackjack(int a, int b) {
+        if (a > 21 && b > 21) return 0;
+        if (a > 21) return b;
+        if (b > 21) return a;
+        return Math.max(a, b);
     }
 
     public static boolean evenlySpaced(int a, int b, int c) {
-        int[] nums = bubbleSort(new int[]{a, b, c});
-        int smallest = nums[0];
-        int largest = nums[nums.length - 1];
-        int middle = nums[1];
-        double expectedMiddle = (smallest + largest) / 2.0;
-        return expectedMiddle == middle;
+        int largest = Math.max(Math.max(a, b), c);
+        int smallest = Math.min(Math.min(a, b), c);
+        double expectedMedium = (largest + smallest) / 2.0;
+        return a == expectedMedium || b == expectedMedium || c == expectedMedium;
+    }
+
+    public static int makeChocolate(int small, int big, int goal) {
+        return ( (goal <= small + big*5) && (goal % 5 <= small) ) ?
+                goal - Math.min(big*5, goal - goal%5) : -1;
     }
 }
