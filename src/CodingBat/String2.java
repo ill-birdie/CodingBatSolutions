@@ -142,6 +142,18 @@ public final class String2 {
         return str.matches(regex);
     }
 
+    public static boolean xyzMiddle(String str) {
+        for (int i = 0; i < str.length() - 2; i++) {
+            String window = str.substring(i, i + 3);
+            int numRightChars = Math.abs(str.length() - (i+3));
+            boolean inMiddle = Math.abs(numRightChars - i) <= 1;
+            if (window.equals("xyz") && inMiddle) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static String getSandwich(String str) {
         String target = "bread";
         int startIdx = str.indexOf(target) + target.length();
